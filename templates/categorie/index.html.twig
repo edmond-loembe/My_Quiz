@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+        <div class="head">
+        <a href="/"><h1>My Quizz</h1></a>
+                <div class="log">
+                        <a class="button1" href="/">Home</a>
+                </div>
+        </div>
+        <tbody>
+        <div class="categorie">
+        {% for categorie in categories %}
+                <a href="{{ path('question_index', {'id': categorie.id}) }}"><div class="categorie1">
+                <h2>{{ categorie.name }}</h2>
+                <img src="/{{ categorie.name }}.png"><br></div></a>
+        {% else %}
+                <p colspan="3">no records found</p>
+        {% endfor %}
+        </div>
+
+        <a href="{{ path('categorie_new') }}">Create new</a>
+{% endblock %}

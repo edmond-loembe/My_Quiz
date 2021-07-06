@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+        <div class="head">
+        <a href="/"><h1>My Quizz</h1></a>
+                <div class="log">
+                        <a class="button1" href="/">Home</a>
+                </div>
+        </div>
+
+        <table class="table">
+
+        <tbody>
+        <form action = "{{ path('result') }}" method = "POST">
+        {% for question in questions %}
+        
+                <h4>{{ question.question }}</h4>
+                {% for reponse in question.getReponse() %}
+                <div class="reponse">
+                <input type="radio" id="scales" name="{{ reponse.idQuestion }}" value="{{ reponse.reponseExpected }}">
+                <label class="reponses" for"scales">{{ reponse.reponse }}</label><br>
+                </div>
+                <div class="edit">
+                <h4><a href="{{ path('question_show', {'id': question.id}) }}">show</a></h4>
+                <h4><a href="{{ path('question_edit', {'id': question.id}) }}">edit</a></h4>
+                </div>
+        {% else %} 
+                
+        <tr>
+                <td colspan="4">no records found</td>
+                </tr>       
+        {% endfor %}
+                {% endfor %}
+
+        </tbody>
+        </table>
+        <button class="button2" type="submit">Submit</button>
+        </form>
+        <a href="/categorie"><button class="button2" type="submit">Back</button></a>
+        <a href="/"><button class="button2" type="submit">Home</button></a>
+
+
+        {# <a href="{{ path('question_new') }}">Create new</a> #}
+{% endblock %}

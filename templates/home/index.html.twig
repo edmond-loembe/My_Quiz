@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}My Quizz{% endblock %}
+
+{% block body %}
+
+<div class="head">
+
+<a href="/"><h1>My Quizz</h1></a>
+<div class="log">
+    {% if app.user %}
+        <a class="button1" href="/profil">profil</a>
+        <a class="button1" href="/categorie">categories</a>
+    {% else %}
+        <a class="button1" href="/login">Login</a>
+        <a class="button1" href="/register">Register</a>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}

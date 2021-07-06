@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<form method="post">
+    {% if app.user %}
+        <div class="head">
+        <h1>Bonjour {{ app.user.username }} ! </h1>
+
+            <div class="log">
+            <a class="button1" href="/">Home</a>
+            <a class="button1" href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        </div>
+    {% endif %}
+    {% endblock %} 

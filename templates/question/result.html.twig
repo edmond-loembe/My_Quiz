@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+        <div class="head">
+        <a href="/"><h1>My Quizz</h1></a>
+                <div class="log">
+                        <a class="button1" href="/">Home</a>
+                </div>
+        </div>
+        <div class="result">
+        <h4> votre score est de {{ score }} /10 !</h4>
+        <h4> {{ ques }} question(s) repondue(s), et vous avez {{ score }} bonne(s) réponse(s)</h4>
+        </div>
+        <a href="/categorie"><button class="button2" type="submit">Catégories</button></a>
+
+{% endblock %}
